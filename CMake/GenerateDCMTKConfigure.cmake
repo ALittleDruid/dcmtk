@@ -951,10 +951,10 @@ function(DCMTK_CHECK_ENABLE_LFS)
     # for cases insensitive comparison
     string(TOLOWER "${DCMTK_ENABLE_LFS}" DCMTK_ENABLE_LFS)
   endif()
-  if(NOT DCMTK_ENABLE_LFS OR DCMTK_ENABLE_LFS MATCHES "^(on|true|yes|1)$")
-    set(DCMTK_ENABLE_LFS "auto")
-  elseif(DCMTK_ENABLE_LFS MATCHES "^(no|false|0)$")
+  if(DCMTK_ENABLE_LFS MATCHES "^(no|false|0)$")
     set(DCMTK_ENABLE_LFS "off")
+  elseif(NOT DCMTK_ENABLE_LFS OR DCMTK_ENABLE_LFS MATCHES "^(on|true|yes|1)$")
+    set(DCMTK_ENABLE_LFS "auto")
   endif()
   # determin whether lfs64 is available in case it wasn't detected yet it may be used
   if(NOT DEFINED DCMTK_LFS64_AVAILABLE AND DCMTK_ENABLE_LFS MATCHES "^(lfs64|auto)$")

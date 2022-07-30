@@ -80,10 +80,10 @@ public:
 
     /// the user password.
     OFString pw_passwd;
-
+#ifdef HAVE_PASSWD_GECOS
     /// the real name.
     OFString pw_gecos;
-
+#endif
     /// the home directory.
     OFString pw_dir;
 
