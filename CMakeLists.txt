@@ -4,6 +4,10 @@ cmake_minimum_required(VERSION 3.0.0...3.13.2 FATAL_ERROR)
 # Declare project
 project(DCMTK)
 
+if(MSVC)
+  string(APPEND CMAKE_CXX_FLAGS " /Zc:__cplusplus")
+endif()
+
 #-----------------------------------------------------------------------------
 # General project settings to configure DCMTK build process
 #-----------------------------------------------------------------------------
